@@ -4,7 +4,7 @@ import {db} from '@/lib/db';
 
 export const checkUser = async () => {
     const user = await currentUser();
-    console.log("print");
+   
     //Check for current logged in Clerk user
 
     if (!user){
