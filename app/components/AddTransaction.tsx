@@ -1,12 +1,21 @@
 'use client';
 import { useRef } from 'react';
+import addTransaction from '@/app/actions/addTransaction';
 
 
 const AddTransaction = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const clientAction = async (formData: FormData) => {
-    console.log(formData.get("text"), formData.get("amount"));
+    const { data , error} = await addTransaction(formData);
+
+    if (error) {
+      alert (error);
+    }
+    else {
+      alert ('Transaction Added');
+      console.log(data);
+    }
   };
 
   return (
