@@ -1,4 +1,5 @@
 'use server';
+import { auth } from "@clerk/nextjs/server";
 
 interface TransactionData {
     text : string;
@@ -24,6 +25,14 @@ Promise<TransactionResult> {
     const text: string = textValue.toString(); // Ensure text is string
     const amount: number = parseFloat(amountValue.toString()); // Parse amount as number
 
+    //Get logged in user
+    const userId = auth();
+    
+    //Check for user
+    if (!userId) {
+        return {error: 'User Not Found'}
+    }
+    
     const transactionData: TransactionData = {
         text,
         amount
