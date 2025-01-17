@@ -16,6 +16,7 @@ const AddTransaction = () => {
     else {
       
       toast.success('Transaction added');
+      formRef.current?.reset();
     }
   };
 
