@@ -8,7 +8,7 @@ import deleteTransaction from "../actions/deleteTransaction";
 const TransactionItem = ({transaction}: {transaction:Transaction}) => {
     const sign = transaction.amount < 0 ? '-' : '+';
     
-    const handleDeleteTransaction = async (transactionId : String) => {
+    const handleDeleteTransaction = async (transactionId : string) => {
         const confirmed = window.confirm('Are you sure you want to delete this transaction?');
         
         if (!confirmed) return;
